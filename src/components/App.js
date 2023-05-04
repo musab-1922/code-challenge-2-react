@@ -2,17 +2,18 @@ import React, { useState, useEffect } from "react";
 import BotsPage from "./BotsPage";
 
 function App() {
-  const [data, setData] = useState([]);
+  const [bots, setBots] = useState([]);
 
   useEffect(() => {
-    fetch("/http://localhost:3000/bots")
+    fetch("http://localhost:3000/bots")
       .then((response) => response.json())
-      .then((data) => setData(data));
+      .then((data) => setBots(data))
+      .catch((error) => console.log(error));
   }, []);
 
   return (
     <div className="App">
-      <BotsPage data={data} />
+      <BotsPage bots={bots} />
     </div>
   );
 }

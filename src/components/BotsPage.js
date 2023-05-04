@@ -20,7 +20,7 @@ function BotsPage() {
   }
   function releaseFromArmy(bot){
     //remove from army
-    fetch(`http://localhost:8002/bots/${bot.id}`,{
+    fetch(`http://localhost:3000/bots/${bot.id}`,{
       method: "DELETE",
     })
     .then(res => res.json())
